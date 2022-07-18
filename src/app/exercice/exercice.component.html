@@ -1,0 +1,42 @@
+<div class="row my-3">
+    <div class="col-12 col-md-8 offset-md-2 bg-dark text-white p-3 rounded">
+        <h5 class="display-5 text-muted">Exercice Reactive Form</h5>
+        <hr>
+        <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3 row">
+                <div class="col-2">
+                    <label for="project-name" class="form-label">Nom du Projet :</label>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="project-name" id="project-name" placeholder="New Project" formControlName="projectName">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <div class="col-2">
+                    <label for="user-mail" class="form-label">Email du gérant :</label>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="user-mail" id="user-mail" placeholder="test@example.com" formControlName="userMail">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <div class="col-2">
+                    <label for="project-status" class="form-label">Statut de Projet :</label>
+                </div>
+                <div class="col">
+                    <select name="project-status" id="project-status" class="form-select" formControlName="projectStatus">
+                        <option value="stable">Stable</option>
+                        <option value="critical" selected>Critical</option>
+                        <option value="finished">Finished</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="text-end">
+                <button class="btn btn-outline-light" type="submit" [disabled]="projectForm.status === 'INVALID'"><i class="bi bi-send"></i> Envoyer</button>
+            </div>
+        </form>
+    </div>
+</div>
